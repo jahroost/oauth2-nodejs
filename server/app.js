@@ -5,13 +5,18 @@ var session = require('express-session')
 var app = express()
 
 app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'ejs')
-app.use(express.static(path.join(__dirname, 'public')))
+// app.set('view engine', 'ejs')
+app.use(express.static(path.join(__dirname, '../qboinvoicegenerator2/dist')))
 app.use(session({secret: 'secret', resave: 'false', saveUninitialized: 'false'}))
 
 // Initial view - loads Connect To QuickBooks Button
-app.get('/', function (req, res) {
-  res.render('home', config)
+// app.get('/', function (req, res) {
+//   console.log('hereere')
+//   res.render('home', config)
+// })
+
+app.route('/clay').get((req, res) => {
+  console.log('hellooo plz')
 })
 
 // Sign In With Intuit, Connect To QuickBooks, or Get App Now

@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 // sandbox url
-const baseurl = 'localhost:3000';
+const baseurl = 'http://localhost:3000';
 
 // live url
 // const baseurl = 'https://quickbooks.api.intuit.com';
@@ -19,19 +19,24 @@ const baseurl = 'localhost:3000';
 @Injectable()
 export class DataService {
 
-  constructor(private url: string, private http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   getAll() {
-    return this.http.get(this.url)
+    return this.http.get(baseurl)
       .map(response => response)
       .catch(this.handleError);
   }
 
-  create(resource) {
-    return this.http.post(this.url, resource)
+  create() {
+    return this.http.get(baseurl)
       .map(response => response)
       .catch(this.handleError);
+  }
+
+  login() {
+    console.log('in data service')
+    return this.http.get(`${baseurl}/clay`).map(response => response).catch(this.handleError);
   }
 
   // update(resource) {

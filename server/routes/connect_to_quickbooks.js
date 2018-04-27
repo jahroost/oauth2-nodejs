@@ -4,6 +4,7 @@ var router = express.Router()
 
 /** /connect_to_quickbooks **/
 router.get('/', function (req, res) {
+  console.log('howdy friends!')
   // Set the Accounting + Payment scopes
   tools.setScopes('connect_to_quickbooks')
 

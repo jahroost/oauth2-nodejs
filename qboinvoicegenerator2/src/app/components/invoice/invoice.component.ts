@@ -46,7 +46,7 @@ export class InvoiceComponent implements OnInit {
       }
     };
 
-    this.service.create(invoice)
+    this.service.create()
       .subscribe(
         newInvoice => {
           console.log('hello')
