@@ -1,0 +1,16 @@
+<div class="uk-container uk-container-large">
+  <h1 *ngIf="!name">
+    Hello
+  </h1>
+  <h1 *ngIf="name">
+    Hello, {{name}}
+  </h1>
+  
+  <button class="uk-button uk-button-default" (click)="login()">
+    Login
+  </button>
+  <button class="uk-button uk-button-default" (click)="logoff()">
+    Logout
+  </button>
+  </div>
+  

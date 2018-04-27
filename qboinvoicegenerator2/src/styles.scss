@@ -1,0 +1,41 @@
+$global-emphasis-color: #333 !default;
+$global-color: #666 !default;
+$global-inverse-color: #fff !default;
+$global-gutter: 30px !default;
+$global-medium-gutter: 40px !default;
+$global-small-gutter: 15px !default;
+$global-muted-background: #f8f8f8 !default;
+$global-primary-background: #1e87f0 !default;
+$global-success-background: #32d296 !default;
+$global-warning-background: #faa05a !default;
+$global-danger-background: #f0506e !default;
+$global-large-margin: 70px !default;
+$global-xxlarge-font-size: 2.625rem !default;
+$article-title-line-height: 1.2 !default;
+$global-small-font-size: 0.875rem !default;
+$article-meta-line-height: 1.4 !default;
+$global-muted-color: #999 !default;
+$animation-duration: 0.5s !default;
+$animation-fade-duration: 0.8s !default;
+$animation-kenburns-duration: 15s !default;
+$animation-fast-duration: 0.1s !default;
+$animation-slide-small-translate: 10px !default;
+$animation-slide-medium-translate: 50px !default;
+$global-background: #fff !default;
+$global-secondary-background: #222 !default;
+$navbar-nav-item-height: 80px !default;
+$navbar-nav-item-padding-horizontal: 15px !default;
+$navbar-dropdown-width: 200px !default;
+$navbar-dropdown-margin: 0 !default;
+$navbar-dropdown-padding: 15px !default;
+$navbar-dropdown-dropbar-margin-top: 0 !default;
+
+// 2. Import default variables and available mixins.
+@import "../node_modules/uikit/src/scss/variables-theme.scss";
+@import "../node_modules/uikit/src/scss/mixins-theme.scss";
+
+// 3. Your custom mixin overwrites.
+@mixin hook-card() { color: #000; }
+
+// 4. Import UIkit.
+@import "../node_modules/uikit/src/scss/uikit-theme.scss";
