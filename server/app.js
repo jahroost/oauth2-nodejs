@@ -2,10 +2,12 @@ var path = require('path')
 var config = require('./config.json')
 var express = require('express')
 var session = require('express-session')
+var cors = require('cors')
 var app = express()
 
 app.set('views', path.join(__dirname, 'views'))
-// app.set('view engine', 'ejs')
+app.use(cors())
+app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, '../qboinvoicegenerator2/dist')))
 app.use(session({secret: 'secret', resave: 'false', saveUninitialized: 'false'}))
 

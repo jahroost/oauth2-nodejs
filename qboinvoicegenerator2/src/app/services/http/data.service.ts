@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import axios from 'axios';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
@@ -18,7 +19,7 @@ const baseurl = 'http://localhost:3000';
 
 @Injectable()
 export class DataService {
-
+  payload;
   constructor(private http: HttpClient) {
   }
 
@@ -29,14 +30,13 @@ export class DataService {
   }
 
   create() {
-    return this.http.get(baseurl)
-      .map(response => response)
+    return axios.post(`${baseurl}/api_call/invoice`)
+      .then(res => res.data)
       .catch(this.handleError);
   }
 
   login() {
-    console.log('in data service')
-    return this.http.get(`${baseurl}/clay`).map(response => response).catch(this.handleError);
+    return axios.get(`${baseurl}/connect_to_quickbooks`).then((res) => this.payload = { 'url': res.data, 'status': res.status }).catch(this.handleError);
   }
 
   // update(resource) {

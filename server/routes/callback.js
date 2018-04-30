@@ -29,14 +29,14 @@ router.get('/', function (req, res) {
         // We should decode and validate the ID token
         jwt.validate(token.data.id_token, function() {
           // Callback function - redirect to /connected
-          res.redirect('connected')
+          res.redirect('/')
         }, errorFn)
       } catch (e) {
         errorFn(e)
       }
     } else {
       // Redirect to /connected
-      res.redirect('connected')
+      res.redirect('/')
     }
   }, function (err) {
     console.log(err)

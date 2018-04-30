@@ -6,7 +6,6 @@ var router = express.Router()
 // This would be the endpoint that is called when "Get App Now" is clicked
 // from apps.com
 router.get('/', function (req, res) {
-  console.log('stopped here?')
   // Set the OpenID + Accounting + Payment scopes
   tools.setScopes('connect_handler')
 

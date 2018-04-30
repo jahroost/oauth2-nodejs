@@ -14,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class InvoiceComponent implements OnInit {
-  
+  invoice;
   constructor(private service: InvoiceService) {
   }
   
@@ -22,11 +22,6 @@ export class InvoiceComponent implements OnInit {
   }
   
   createInvoice() {
-    
-    // let headers = new HttpHeaders({
-    //   "hello": "hello plz",
-    //   "Authorization": "Bearer " + this.oauthService.getAccessToken()
-    // });
 
     const invoice = {
       'Line': [
@@ -47,9 +42,10 @@ export class InvoiceComponent implements OnInit {
     };
 
     this.service.create()
-      .subscribe(
+      .then(
         newInvoice => {
-          console.log('hello')
+          console.log(newInvoice)
+          this.invoice = JSON.stringify(newInvoice, null, 2);
           // invoice['id'] = newInvoice.id;
             // this.posts.splice(0, 0, post);
           },
